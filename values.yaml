@@ -1,0 +1,72 @@
+# Minikube stores its logs in a separate directory.
+# enable if started in minikube.
+on_minikube: false
+namespace: mls-logging
+
+image:
+  evaluation:
+    repository: hub.docker.prod.walmart.com/akshaydubey29/evaluation
+    tag: 1.1
+  pullPolicy: Always
+
+# When enabled, exposes User interface on {{ .Release.Name }}-ui service
+applicationui:
+  enabled: true
+  service:
+    port: 8080
+    type: NodePort
+
+
+env: []
+
+## Annotations to add to the DaemonSet's Pods
+podAnnotations: {}
+
+## ConfigMap override where fullname is {{.Release.Name}}-{{.Values.existingConfigMap}}
+## Defining existingConfigMap will cause templates/config.yaml
+## to NOT generate a ConfigMap resource
+##
+existingConfigMap: ""
+
+## Extra volumes containing additional files required for evaluation to work
+## (eg. CA certificates)
+## Ref: https://kubernetes.io/docs/concepts/storage/volumes/
+##
+extraVolumes: []
+
+## Extra volume mounts for the evaluation pod.
+## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-volume-storage/
+##
+extraVolumeMounts: []
+
+resources:
+  limits:
+    memory: 200Mi
+  requests:
+    cpu: 100m
+    memory: 100Mi
+
+## Node tolerations for evaluation scheduling to nodes with taints
+## Ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+##
+tolerations: []
+# - key: "key"
+#  operator: "Equal|Exists"
+#  value: "value"
+#  effect: "NoSchedule|PreferNoSchedule|NoExecute(1.6 only)"
+
+## Node labels for evaluation pod assignment
+## Ref: https://kubernetes.io/docs/user-guide/node-selection/
+##
+nodeSelector: {}
+
+rbac:
+  # Specifies whether RBAC resources should be created
+  create: false
+
+serviceAccount:
+  # Specifies whether a ServiceAccount should be created
+  create: true
+  # The name of the ServiceAccount to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: 

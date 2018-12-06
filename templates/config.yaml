@@ -1,0 +1,9 @@
+{{- if (empty .Values.existingConfigMap) -}}
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "evaluation.fullname" . }}-config
+  namespace: {{ .Values.namespace}}
+  labels:
+    app: {{ template "evaluation.fullname" . }}
+{{- end }}

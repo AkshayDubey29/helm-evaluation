@@ -1,0 +1,11 @@
+name: evaluation
+version: 0.1
+appVersion: 1.0
+description: Web Application for Xebia Labs Demonstration
+keywords:
+- jhipster
+- application
+- mysql
+maintainers:
+- name: Akshay Dubey
+  email: ashaydubey2912@gmail.com

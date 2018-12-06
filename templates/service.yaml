@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "evaluation.fullname" . }}-ui
+  namespace: {{ .Values.namespace}}
+  labels:
+    app: {{ template "evaluation.fullname" . }}
+spec:
+  type: {{ .Values.applicationui.service.type}}
+  sessionAffinity: None
+  ports:
+  - port: {{ .Values.applicationui.service.port }}
+    targetPort: application-ui
+    name: application-ui
+  selector:
+    app: {{ template "evaluation.fullname" . }}

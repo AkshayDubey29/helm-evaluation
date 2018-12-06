@@ -1,0 +1,9 @@
+Application is now running.
+
+----------------------------------------------------------
+	Application 'evaluation' is running! Access URLs:
+	Local: 		http://localhost:8080
+	External: 	http://172.17.0.2:8080
+	Profile(s): 	[swagger, dev]
+----------------------------------------------------------
+
