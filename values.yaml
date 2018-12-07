@@ -1,7 +1,6 @@
-# Minikube stores its logs in a separate directory.
 # enable if started in minikube.
 on_minikube: false
-namespace: mls-logging
+namespace: <namespace>
 
 image:
   evaluation:
