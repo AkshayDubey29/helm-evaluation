@@ -5,7 +5,7 @@ namespace: mls-logging
 
 image:
   evaluation:
-    repository: hub.docker.prod.walmart.com/akshaydubey29/evaluation
+    repository: registry.hub.docker.com/akshaydubey29/evaluation
     tag: 1.1
   pullPolicy: Always
 
